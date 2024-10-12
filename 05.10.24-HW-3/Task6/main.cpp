@@ -5,7 +5,6 @@ int main(int argc, char *argv[]) {
     int b = 0;
     scanf("%d", &a);
     scanf("%d", &b);
-    int c = 0;
     int k = 0;
     int n = 0;
     k = a;
