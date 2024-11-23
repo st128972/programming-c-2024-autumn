@@ -59,6 +59,7 @@ void addToStart(int *&arr, int size) {
     arr = newArr;
     ++size;
 
+
 }
 
 void addToEnd(int *&arr, int &size) {
