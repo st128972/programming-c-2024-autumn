@@ -15,26 +15,22 @@ void Matrix::freeData(double** data, int rows) {
 	}
 	delete[] data;
 }
-Matrix::Matrix()
-{
+Matrix::Matrix() {
 	this->rows = 1;
 	this->cols = 1;
 	this->data = createData(1, 1);
 }
-Matrix::Matrix(int dim)
-{
+Matrix::Matrix(int dim) {
 	this->rows = dim;
 	this->cols = dim;
 	this->data = createData(dim, dim);
 }
-Matrix::Matrix(int rows, int cols)
-{
+Matrix::Matrix(int rows, int cols) {
 	this->rows = rows;
 	this->cols = cols;
 	this->data = createData(rows, cols);
 }
-Matrix::Matrix(const Matrix& matr)
-{
+Matrix::Matrix(const Matrix& matr) {
 	this->rows = matr.rows;
 	this->cols = matr.cols;
 	this->data = createData(matr.rows, matr.cols);
@@ -46,8 +42,7 @@ Matrix::Matrix(const Matrix& matr)
 		}
 	}
 }
-Matrix::~Matrix()
-{
+Matrix::~Matrix() {
 	if (this->data != nullptr)
 	{
 		freeData(this->data, this->rows);
@@ -67,20 +62,17 @@ double Matrix::get(int row, int col) {
 		return -1;
 	}
 }
-void Matrix::set(int row, int col, double val)
-{
+void Matrix::set(int row, int col, double val) {
 	if (0 <= row && row <= this->rows &&
 		0 <= col && col <= this->cols)
 	{
 		this->data[row][col] = val;
 	}
 }
-int Matrix::getR()
-{
+int Matrix::getR() {
 	return this->rows;
 }
-int Matrix::getC()
-{
+int Matrix::getC() {
 	return this->cols;
 }
 void Matrix::print(std::ostream& stream) {
@@ -96,8 +88,7 @@ void Matrix::print(std::ostream& stream) {
 	}
 }
 
-void Matrix::multBy(double k)
-{
+void Matrix::multBy(double k) {
 	for (int i = 0; i < this->rows; ++i)
 	{
 		for (int j = 0; j < this->cols; ++j)
@@ -106,8 +97,7 @@ void Matrix::multBy(double k)
 		}
 	}
 }
-void Matrix::addTo(Matrix matr)
-{
+void Matrix::addTo(Matrix matr) {
 	if (matr.rows == this->rows && matr.cols == this->cols)
 	{
 		for (int i = 0; i < this->rows; ++i)
@@ -142,8 +132,7 @@ void Matrix::transpose() {
 		this->data = temp;
 	}
 }
-double Matrix::det()
-{
+double Matrix::det() {
 	if (this->rows > 0 && this->rows == this->cols)
 	{
 		int dim = this->rows;
@@ -161,8 +150,7 @@ double Matrix::det()
 	return 0.0;
 }
 
-Matrix Matrix::minor(int row, int col)
-{
+Matrix Matrix::minor(int row, int col) {
 	if (this->rows > 1 &&
 		this->rows == this->cols &&
 		row < this->rows && col < this->cols)
