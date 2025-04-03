@@ -89,7 +89,6 @@ struct Student {
         return magical_burst;
     }
 
-
     void print() {
         cout << name << " [" << hp << "] (";
         cout << "critical damage=" << critical_chance << ";";
